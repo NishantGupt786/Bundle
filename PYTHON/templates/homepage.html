@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">I am submitting this as my final project for cs50! This was an amazing journey and I would like to thank all the staff who made it possible.</p>
+  <hr class="my-4">
+  <p>Python is one of the most user-friendly programming languages out there! To learn more about python click the button below.</p>
+  <a class="btn btn-primary btn-lg" href="https://en.wikipedia.org/wiki/Python_(programming_language)" role="button">Learn more</a>
+</div>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="row col-12">
+  <div class="card col-6">
+    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png" alt="Card image cap" height="575">
+    <div class="card-body">
+      <h5 class="card-title">Python</h5>
+      <p class="card-text">For documentation and download of latest version of python click link below</p>
+      <a href="https://www.python.org" class="btn btn-primary">click link</a>
+    </div>
+  </div>
+
+  <div class="card col-6">
+    <img class="card-img-top" src="https://pythondevs.org/wp-content/uploads/2020/04/why_django_is_the_best_web_framework_for_your_project_2_image_1.png" alt="Card image cap" >
+    <div class="card-body">
+      <h5 class="card-title">Django</h5>
+      <p class="card-text">For documentation of django commands and features visit the website below</p>
+      <a href="https://www.djangoproject.com" class="btn btn-primary">click link</a>
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Python for Beginners</h2>
+<p>In this page you will get all the required information to get started and develop your skills in Python.</p>
+<h3>Set up</h3>
+<p>To run or execute python programs you will need either an IDE or a text editor.</p>
+<p>I have used pycharm in the past but right now i use visual studio code to run my programs.</p>
+<p>Here are the links to download either of the two to get started.</p>
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded"><p><a href="https://code.visualstudio.com/download">Vscode download</a></p>
+<p><a href="https://www.jetbrains.com/pycharm/download/#section=windows">Pycharm download</a></p>
+</div>
+<p>Now if you used VS code, create a new file in a new folder and give it the extension: <p class="font-weight-bold">.py</p></p>
+<p>If you used pycharm create a new project and you are ready to go.</p>
+
+<h3>Syntax for all the functions and methods you need</h3>
+<h5>Print statement</h5>
+<div class="shadow p-3 mb-5 bg-white rounded">print(#statement)</div>
+<p>Note that strings are embedded in "" and integers and floats can be printed plain.</p>
+<p>We can use formatted strings to make printing much easier for which the syntax is:</p>
+<div class="shadow p-3 mb-5 bg-white rounded">print(f"My name is {name}")</div>
+
+<h5>Assignment of variables</h5>
+<p>The Assignment of various data structures integer, string, list, tuple and dictionary can be done as follows:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>number = 0</p>
+<p>name = "Nishant"</p>
+<p>grocerylist = ["tomatoes", "cucumber", "biscuits"]</p>
+<p>cords = (0, 1)</p>
+<p>dict = {'x':1, 'y':2}</p>
+</div>
+
+<h5>Conditional Statements</h5>
+<p>Format of the if.... elif..... else Statements is as follows:</p>
+<p>We can also use nestes if Statements where there is an if statement inside another if statement.</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>if(name == "Nishant"):</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Correct")</p>
+    <p>elif(name == "david"):</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Incorrect")</p>
+    <p>else:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Please enter valid name")</p>
+</div>
+
+<h5>Loop Statements</h5>
+<p>In Python there are two types of loop Statements: the "while" and the "for" loop</p>
+<h6>Here is the syntax of the while loop</h6>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>i = 1</p>
+    <p>while i < 6:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1</p>
+</div>
+<h6>Here is the syntax of the for loop</h6>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>for i in range(5):</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+<p>We can also use the for loop to iterate over strings and lists.</p>
+<p>We can also nest loops where one for loop is inside another or one for loop is inside a while loop.</p>
+
+<h5>Defining functions</h5>
+<p>In python we can define functions which we can later call in our program to do some particular task.</p>
+<p>The syntax for the following is:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>def square(x):</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (x*x)</p>
+    <p>num = square(5)</p>
+    <p>print(num)</p>
+</div>
+<p>This particular function takes in one integer "x" and returns its squared value.</p>
+<p>Note that to call this function we just type the name of the function followed by the parameter in paranthesis.</p>
+
+<h5>Importing libraries and important python libraries I use</h5>
+<p>A library is code that another person has written which you can use in your program to use the functions of his code.</p>
+<p>There are many ways to import a function from a library which you can see as follows</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from math import sqrt</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(sqrt(25))</p>
+    <p>import math</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(math.sqrt(25))</p>
+    <p>from math import sqrt as root</p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(root(25))
+</div>
+<p>Now the libraries that I use regularly are the numpy, selenium and math libraries.</p>
+<p>The selenium library is used to make a web automation program that does some function for you in the web by only running a program. I have used this to order food online through swiggy without actuall doing anything.</p>
+<p>The numpy library is used to handle large stes of data which can be stored in 2-d arrays which becomes very complicated and hard if done normally on python.</p>
+<p>The math module contains various mathematic and logical operations which I use at a daily basis.</p>
+
+{% endblock  %}

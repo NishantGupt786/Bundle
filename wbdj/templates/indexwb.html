@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Web Development with Django</h2>
+<p>On this page you see all the required information and links to get started with django.</p>
+
+<h3>Set up</h3>
+<p>To start of go to your systems command prompt type the following commands in order one by one:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>mkdir {project name}</p>
+<p>cd {project name}</p>
+<p>pipenv install django</p>
+<p>pipenv shell</p>
+<p>django-admin startproject {project name}</p>
+<p>code .</p>
+</div>
+<p>Your new project should open in vs code with all its requires files already present.</p>
+<p>Now go into the virtual environment of your project(already made) and type the following on the terminal to start your server:</p>
+<div class="shadow p-3 mb-5 bg-white rounded">python manage.py runserver</div>
+
+<h3>Your first app</h3>
+<p>To create your first app go the terminal and type:</p>
+<div class="shadow p-3 mb-5 bg-white rounded">python manage.py startapp {appname}</div>
+<p>On executing the command you should be able to see the folders and files of your app in the explorer section</p>
+
+<h4>All aspects of your app</h4>
+<p>You can create as many number of apps that you want in django but configuring and designing all of them will then be up to you.</p>
+<p>here is everything you need to know about your apps:</p>
+
+<p class="font-weight-bold">The first folder in your app directory is the migration folder which you don't need to change much.</p>
+<p class="font-weight-bold">The next file in your app directory will be the "admin.py" file which can be used to directly edit or add to the functions from the "models.py" file by entering the website as a superuser.</p>
+<p>Here is a step by step manual on how to do so</p>
+
+<p>For example you are making a movie description website where in the models.py file you defined two classes: Genre and movies which have many attributes such as name of genre, title, release_year, movie_genre</p>
+<p>You can add and edit these attributes by entering the website as a superuser.</p>
+<p>Here is an example of how an admin.py file looks.</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from django.contrib.admin.options import ModelAdmin</p>
+<p>from .models import Genre, Movies</p>
+<p># Register your models here.</p>
+<p>class GenreAdmin(admin.ModelAdmin):</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_display = ('id', 'name')</p>
+<p>class MovieAdmin(admin.ModelAdmin):</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exclude = ('date_created', )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list_display = ('title', 'num_in_stock', 'daily_rate')</p>
+<p>admin.site.register(Genre, GenreAdmin)</p>
+<p>admin.site.register(Movies, MovieAdmin)</p>
+</div>
+<p>And to register as a superuser type the following on your terminal and follow up with the requirements:</p>
+<div class="shadow p-3 mb-5 bg-white rounded">python manage.py createsuperuser</div>
+<p>After doing so You can finall edit your model functions directlty through your website.</p>
+
+<p class="font-weight-bold">The next file is the models.py file which is used to define the functions of your app. Each function usually has many attributes which define the functions</p>
+<p>Fro example a movie function will have attributes such as title, release_date, genre, etc.</p>
+<p>This is the format of a general models.py file:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from django.db import models</p>
+<p>class Genre(models.Model):</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = models.CharField(max_length=255)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def __str__(self):</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.name</p>
+<p>class Movies(models.Model):</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title = models.CharField(max_length=255)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;release_year = models.IntegerField()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daily_rate = models.FloatField()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;genre = models.ForeignKey(Genre, on_delete=models.CASCADE)</p>
+</div>
+
+<p class="font-weight-bold">The next file is the tests.py which also does not need to be changed a lot.</p>
+<p class="font-weight-bold">Next is the file views.py which the user has to manually create.</p>
+<p>This file is responsible for giving style and pizzazz to your app.</p>
+<p>A common views.py looks like this:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from django.shortcuts import render</p>
+<p>from django.http import HttpResponse</p>
+<p>def index(request):</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'index.html')</p>
+</div>
+<p>As you can probably see an html file is called in the render function. This html file is to be made by you and decides the look of that particular app.</p>
+<p class="font-weight-bold">The html file is to be put in a templates folder in that app as per django conventions.</p>
+
+<p class="font-weight-bold">The last file in your app is the urls.py which handles all the html documents called in your views.py.</p>
+<p>Even your main directory has a urls.py file.</p>
+<p>This is how a common urls.py file looks like:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from django.urls import path</p>
+<p>from . import views</p>
+<p>app_name = 'wbdj'</p>
+<p>urlpatterns = [</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path('', views.indexwb, name='indexwb')]</p>
+</div>
+
+<p>Lastly, to configure your app to the main directory you need to add the following statement in the installed apps list in your settings.py</p>
+<div class="shadow p-3 mb-5 bg-white rounded">{appname}.apps.{functioninapps.py}</div>
+
+<h3>Your Homepage</h3>
+<p>To create your Homepage you need to create a views.py file calling an html in your main directory.</p>
+<p>After doing so you need to go to your main urls.py and add the following statement in the urlpatterns array:</p>
+<div class="shadow p-3 mb-5 bg-white rounded">path('', views.home),</div>
+
+<footer>After finishing all these steps you will have made a full fledged website using django.</footer>
+
+{% endblock  %}

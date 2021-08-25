@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Machine learning with Jupyter</h2>
+<p>In this page you will understand the basics of machine learning and can start off with simple projects</p>
+<h3>Set up</h3>
+<p>Now, to use jupyter we are going to download a platform called anaconda which contains all the libraries and modules required to start off with machine learning.</p>
+<p>To download anaconda head over to this link:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><a href="https://www.anaconda.com/products/individual">anaconda individual installer</a></div>
+<p>After downloading and following the on-screen procedures head to your start button and seach for anaconda navigator.</p>
+<p>Open it and launch Jupyter notebook</p>
+<p>In the desktop directory create a new python file through your notebook and you are good to go.</p>
+<h3>The Gist of Machine Learning</h3>
+<p>Machine learning comprises of 6 steps:</p>
+<p>importing the data, splitting the data into test/train sets, creating a model, training the model, making predictions, evaluating and improving</p>
+<h5>Step 1: Importing the data</h5>
+<p>To import the data we can do the following steps:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>import panda as pd</p>
+<p>variablename = pd.read_csv('csvfile.csv')</p>
+</div>
+
+<h5>Step 2: Splitting the data into test/train sets</h5>
+<p>To split data you can use the following steps:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from sklearn.model_selection import train_test_split</p>
+<p>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</p>
+</div>
+<p>What this does is that it splits 20% of the data for testing and 80% for training</p>
+
+<h5>Step 3: Creating a model</h5>
+<p>To create a model follow these steps:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>X = variablename.drop(columns=['output'])</p>
+<p>y = variablename['input']</p>
+</div>
+
+<h5>Step 4: Tain the model</h5>
+<p>To train the model we can:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>from sklearn.tree import DecisionTreeClassifier</p>
+<p> = DecisionTreeClassifier()</p>
+<p>model.fit(X_train, y_train)</p>
+</div>
+
+<h5>Step 5: Making predictions</h5>
+<p>To make predictions we need to run the following:</p>
+<div class="shadow p-3 mb-5 bg-white rounded">predictions = model.predict(X_test)</div>
+
+<h5>Step 6: Evaluating and improving</h5>
+<p>To evaluate the predictions we can run the following Statements:</p>
+<div class="shadow p-3 mb-5 bg-white rounded"><p>score = accuracy_score(y_test, predictions)</p>
+<p>print(score)</p>
+</div>
+<p>To improve the model we can tweak the distribution of the train/test sets until we get favourable responses.</p>
+
+<h6>This was only an introduction to machine learning. If you are interested in this field I'm pretty sure there are tons of courses available online</h6>
+
+{% endblock  %}
